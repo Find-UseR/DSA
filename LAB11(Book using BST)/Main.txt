@@ -1,0 +1,54 @@
+package LAB11;
+import java.util.*;
+public class Main {
+
+	public static void main(String[] args) {
+		
+		Scanner sc=new Scanner(System.in);
+		Tree t=new Tree();
+		int choice=0;
+		do {
+	book b=new book();
+	System.out.println("Enter Your Choice");
+	System.out.println("1 For Insert");
+	System.out.println("2 For Display");
+	System.out.println("3 For Search");
+	System.out.println("4 For Traverse Post Order");
+	System.out.println("5 For Traverse Pre Order");
+    System.out.println("6 For Traverse In Order");
+	choice = sc.nextInt();
+
+	switch (choice) {
+	case 1:
+		
+	
+		System.out.println("Enter id");
+		b.bit=sc.nextInt();
+		System.out.println("Enter edition");
+		b.edition=sc.next();
+	    System.out.println("Enter title");
+		b.title=sc.next();
+		t.Insert(b);
+		break;
+	case 2:
+		t.display();
+		break;
+	case 3:
+		t.search();
+		break;
+	case 4:
+		t.postorder(t.root);
+		break;
+	case 5:
+		t.preorder(t.root);
+		break;
+	case 6:
+		t.inorder(t.root);
+		break;
+	case 7:
+		System.exit(0);
+	}
+} while (choice != 7);
+	}
+
+}

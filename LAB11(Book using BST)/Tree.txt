@@ -1,0 +1,122 @@
+package LAB11;
+import java.util.*;
+public class Tree {
+
+	book root;
+	 
+	public void Insert(book x){
+		if(root==null){
+			root=x;
+		}
+		else {
+			book temp=root;
+			while(true){
+				if(temp.bit<x.bit){
+					if(temp.right==null){
+					temp.right=x;
+							break;
+				}
+				else{
+					temp=temp.right;
+					
+				}	
+					}
+				else{
+					if(temp.left==null){
+						temp.left=x;
+						break;
+					}
+					else{
+						temp=temp.left;
+					}
+				}//else
+					}//while
+			}//else
+			}//Func
+	
+	
+	
+	
+	public void search(){
+		Scanner sc=new Scanner(System.in);
+		if(root==null){
+			System.out.println("EMpty");
+		}
+		else{
+		int srch_age;
+		System.out.println("Enter ID to Search");
+	    srch_age=sc.nextInt();
+	    book t=root;
+	 
+	    while(t!=null){
+	 if(t.bit==srch_age){
+		 System.out.println("ID :"+t.bit);
+	    	System.out.println("EDITION :"+t.edition);
+	    	System.out.println("TITLE :"+t.title);
+		 break;
+	 }
+	 else if(t.bit<srch_age){
+		 t=t.right;
+	 }
+	 else{
+		 t=t.left;
+	 }
+	    	
+	    }//while
+	    if(t==null){
+	    	System.out.println("Not Found");
+	    }
+		}
+	    
+	}
+		public void display(){
+		book temp=root;
+		do{
+			System.out.println("ID: "+temp.bit);
+			System.out.println("EDITION: "+temp.edition);
+			System.out.println("TITLE: "+temp.title);
+			temp=temp.right;
+		}while(temp!=null);
+	}
+		
+				public void postorder(book t){
+				if(t==null)
+				return;
+				else{
+					postorder(t.left);
+					postorder(t.right);
+					System.out.println("Id :"+t.bit);
+			    	System.out.println("Edition :"+t.edition);
+			    	System.out.println("Tittle :"+t.title);
+						
+				}
+				}
+				
+				
+				public void preorder(book t){
+				if(t==null)
+				return;
+				else{
+					System.out.println("Id :"+t.bit);
+			    	System.out.println("Edition :"+t.edition);
+			    	System.out.println("Tittle :"+t.title);
+					preorder(t.left);
+					preorder(t.right);		
+				}
+				}
+				
+				
+
+				public void inorder(book t){
+				if(t==null)
+				return;
+				else{
+					inorder(t.left);
+					System.out.println("ID :"+t.bit);
+			    	System.out.println("EDITION :"+t.edition);
+			    	System.out.println("TITLE :"+t.title);
+					inorder(t.right);
+				}
+}
+	
+}

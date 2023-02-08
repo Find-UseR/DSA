@@ -1,0 +1,29 @@
+package LAB11;
+
+public class book {
+
+	int bit;
+	String title;
+	String edition;
+	book right;
+	book left;
+	
+	book(){
+		bit=0;
+		title=null;
+		edition=null;
+		right=null;
+		left=null;
+	}
+	
+	book(int i,String t,String e){
+		bit=i;
+		title=t;
+		edition=e;
+		right=null;
+		left=null;
+	}
+	public String toString(){
+		return "[ID: "+bit+",Title: "+title+",Edition: "+edition+"]";
+	}}
+
